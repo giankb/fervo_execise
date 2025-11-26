@@ -1,0 +1,56 @@
+@if (weatherData){
+
+  <div class="charts-container flex flex-col gap-4">
+    <div class="action-container">
+      <div class="date-selection flex flex-col sm:flex-row gap-2 items-center">
+        <p-datePicker
+          [(ngModel)]="dateRange"
+          selectionMode="range"
+          dateFormat="yy-mm-dd"
+          (onSelect)="updateWeatherRange()"
+          [showIcon]="true"
+          [maxDate]="today"
+          [showButtonBar]="true"
+          placeholder="Seleziona intervallo"
+        >
+        </p-datePicker>
+      </div>
+
+      <button class="button" (click)="downloadWeatherJSON()">
+        <span class="pi pi-download"></span>Scarica dati meteo
+      </button>
+
+    </div>
+
+    <div class="today-widget">
+      <h3>{{ todayLabel }} {{ getWeatherEmoji({ tMax: todayMax, tMin: todayMin, rain: todayRain }) }}</h3>
+      <div>Temperatura max: {{ todayMax }}°C</div>
+      <div>Temperatura min: {{ todayMin }}°C</div>
+      <div>Precipitazioni: {{ todayRain }} mm</div>
+      <div>Vento: {{ todayWind }} km/h</div>
+    </div>
+
+    <div class="forecast-list">
+      @for(day of forecastDays; track day.date){
+        <div>
+          <div>{{ day.weekday }}, {{ day.date }} {{ getWeatherEmoji({ tMax: day.tMax, tMin: day.tMin, rain: day.rain }) }}</div>
+          <div>Max: {{ day.tMax }}°C, Min: {{ day.tMin }}°C</div>
+          <div>Pioggia: {{ day.rain }} mm</div>
+          <div>Vento: {{ day.wind }} km/h</div>
+        </div>
+      }
+    </div>
+
+    <div class="chart-wrapper">
+      <p-chart type="bar" [data]="chartData" [options]="chartOptions"></p-chart>
+    </div>
+
+  </div>
+} @else {
+  <div class="initial-state flex flex-col items-center justify-center text-center gap-2">
+    <i class="pi pi-cloud text-6xl text-primary animate-bounce"></i>
+    <h2 class="text-xl font-semibold">Seleziona una città per visualizzare il meteo</h2>
+    <p class="text-gray-500">Temperature, precipitazioni e posizione sulla mappa appariranno qui.</p>
+  </div>
+}
+
