@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #cce7ff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007acc;
+}
+
+.navbar-left {
+  flex: 1;
+}
