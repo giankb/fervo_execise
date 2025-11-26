@@ -1,0 +1,56 @@
+<div class="form-container">
+  <div class="flex gap-1 align-items-center justify-content-center">
+    <div class="input-group">
+
+      <p-floatlabel class="flex-grow-1">
+        <p-autoComplete
+          id="address"
+          [(ngModel)]="selectedPlace"
+          [suggestions]="filteredPlaces"
+          (completeMethod)="filterPlace($event)"
+          (onSelect)="selectPlace($event)"
+          [optionLabel]="getPlaceLabel"
+          [forceSelection]="true"
+          [minQueryLength]="3"
+          [dropdown]="false"
+        >
+
+          <ng-template #item let-place>
+            <div class="ac-item flex items-center gap-2">
+              <i class="pi pi-map-marker text-primary mr-2"></i>
+              <div>{{ place.name }} ({{ place.country }})</div>
+            </div>
+          </ng-template>
+
+          <ng-template #selectedItem let-place>
+            <div class="ac-selected flex align-items-center">
+              <i class="pi pi-map-marker mr-2 text-primary"></i>
+              {{ place.name }} - {{ place.country }}
+            </div>
+          </ng-template>
+
+          <ng-template #empty>
+            <div class="px-3 py-2 text-muted">Nessun indirizzo trovato</div>
+          </ng-template>
+
+        </p-autoComplete>
+
+        <label for="address">Indirizzo o città</label>
+      </p-floatlabel>
+
+      <button type="submit"
+              class="button"
+              [disabled]="!selectedPlace"
+              [ngClass]="{ 'disabled-button': !selectedPlace }"
+              (click)="sendLocation()"
+      >
+        <span class="pi pi-send"></span>
+      </button>
+
+    </div>
+  </div>
+</div>
+
+
+<p-toast />
+
