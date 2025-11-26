@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+
+body{
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  background-color: #f0f5ff;
+}
+
+
+.button {
+  width: fit-content;
+  height: fit-content;
+  padding: 8px 16px;
+  border: 2px solid #000364;
+  background-color: #000364;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.4s ease;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px
+}
+
+.button:hover {
+  color: #000364;
+  background-color: white;
+}
+
+
+.disabled-button {
+  cursor: not-allowed !important;
+  background-color: #000518 !important;
+  color: white !important;
+  opacity: 0.5;
+}
+
+.disabled-button:hover {
+  cursor: not-allowed !important;
+  background-color: #000518 !important;
+  color: white !important;
+  opacity: 0.5;
+}
