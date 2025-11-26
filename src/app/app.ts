@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import {Loader} from './_utils/loader/loader';
 import {LoadingService} from './_services/loading.service';
 import {Navbar} from './_components/navbar/navbar';
+import {Toast} from 'primeng/toast';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Loader, Navbar],
+  imports: [RouterOutlet, Loader, Navbar, Toast],
   templateUrl: './app.html',
   standalone: true,
   styleUrl: './app.scss'

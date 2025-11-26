@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {LoadingService} from '../../_services/loading.service';
 import {Form} from '../form/form';
 import {Charts} from '../charts/charts';
@@ -18,7 +18,7 @@ import {MessageService} from 'primeng/api';
   styleUrl: './home.scss',
   standalone: true
 })
-export class Home extends NotificationExtension implements OnInit{
+export class Home extends NotificationExtension {
   weatherData: any = null;
 
   constructor(private homeService: HomeService, private loadingService: LoadingService, messageService: MessageService) {
@@ -39,10 +39,5 @@ export class Home extends NotificationExtension implements OnInit{
         }
   });
   }
-
-  ngOnInit() {
-
-  }
-
 
 }
