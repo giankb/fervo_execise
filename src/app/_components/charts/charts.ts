@@ -40,6 +40,7 @@ export class Charts extends NotificationExtension implements OnChanges {
 
   ngOnChanges() {
     if (!this.weatherData) return;
+    this.dateRange = [];
     this.updateChart();
   }
 
