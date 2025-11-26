@@ -4,7 +4,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FloatLabel} from 'primeng/floatlabel';
 import {NgClass} from '@angular/common';
 import {HomeService} from '../../_services/home.service';
-import {Toast} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 import {MessageType} from '../../_models/_enums/messageType';
 import {AutoComplete, AutoCompleteCompleteEvent, AutoCompleteSelectEvent} from 'primeng/autocomplete';
@@ -17,7 +16,6 @@ import {NotificationExtension} from '../../_models/_extensions/notification.exte
     ReactiveFormsModule,
     FloatLabel,
     NgClass,
-    Toast,
     AutoComplete,
     FormsModule,
   ],
